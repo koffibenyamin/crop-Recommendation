@@ -7,7 +7,7 @@ A Flask web application that serves a machine learning model. The system uses ma
 
 - Flask web app for model inference
 - Template rendering with Jinja2
-- Pre-trained model included
+- Pre-trained machine learning model included
 
 ## 📦 Installation
 
