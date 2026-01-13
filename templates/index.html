@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML API</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+</head>
+
+<body>
+
+    <h1>Crop Prediction Model</h1>
+
+    <p><em>This application predicts the most suitable crop to grow based on soil nutrients 
+        (Nitrogen, Phosphorus, Potassium), temperature, humidity, pH level, and rainfall 
+        conditions provided.</em></p>
+
+    <div class="container">
+        <div class="left">
+            <form action="{{url_for('predict')}}" method="POST" class="login">
+
+                <input type="text" name="Nitrogen" placeholder="Nitrogen" required>
+                <input type="text" name="Phosphorus" placeholder="Phosphorus" required>
+                <input type="text" name="Potassium" placeholder="Potassium" required>
+                <input type="text" name="Temperature" placeholder="Temperature" required>
+                <input type="text" name="Humidity" placeholder="Humidity" required>
+                <input type="text" name="pH" placeholder="pH" required>
+                <input type="text" name="Rainfall" placeholder="Rainfall" required>
+                <button type="submit" class="btn btn_primary btn_block">Predict</button>
+
+            </form>
+        </div>
+
+        <div class="right">
+
+            {% if prediction_text %}
+             
+            <h1 id="predi">
+                {{prediction_text}}
+            </h1>
+            {% else %}
+            
+                <h1>Please enter the data to search for the best crop</h1>
+            
+            {% endif %}
+
+        </div>
+    </div>
+
+</body>
+
+</html>
